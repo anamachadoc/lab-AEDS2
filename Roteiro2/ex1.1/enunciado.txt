@@ -1,4 +1,3 @@
-/*
 Crie uma estrutura chamada ContaBancaria para encapsular os detalhes de uma conta bancária. A estrutura deve conter as seguintes informações: número da conta, saldo e nome do
 titular da conta. Implemente as seguintes funções para interagir com a conta bancária:
 • void criarConta(ContaBancaria* c, int numero, char *titular)
@@ -12,4 +11,3 @@ titular da conta. Implemente as seguintes funções para interagir com a conta b
 – Retorna o saldo atual da conta.
 • void imprimirInfo(ContaBancaria *c)
 – Imprime as informa¸c˜oes da conta, incluindo n´umero, titular e saldo.
-*/
