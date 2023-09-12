@@ -1,13 +1,14 @@
-#include"ex11.c"
+#include<stdlib.h>
+#include<stdio.h>
+#include"ex11.h"
+#include"menu.h"
 
 int main () {
-    contaBancaria* lista = (contaBancaria*)malloc(sizeof(contaBancaria));
-    int tam; 
-    if (!lista) {
+    contaBancaria* conta = (contaBancaria*)malloc(sizeof(contaBancaria));
+    if (!conta) {
         printf ("nao ha memoria disponivel!\n");
         exit(1);
     } else {
-        inicializar(lista, &tam);
+        menuUsuario(conta);
     }
-    menu();
 }
