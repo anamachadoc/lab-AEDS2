@@ -4,6 +4,7 @@
 #include"ex11.h"
 
 void criarConta (contaBancaria* c, int numero, char *titular) {
+    printf ("\n\n%s\n", titular);
    c->numeroConta = numero;
    strcpy (c->titular, titular);
    c->saldo = 0;

@@ -42,8 +42,9 @@ void menuUsuario (contaBancaria* conta) {
 
 contaBancaria dadosCliente () {
     contaBancaria nova; 
+    setbuf(stdin, NULL);
     printf ("\ndigite o nome do titular: ");
-    scanf ("%s", nova.titular);
+    fgets (nova.titular, 30, stdin);
     setbuf(stdin, NULL);
     printf ("digite o numero da conta: ");
     scanf ("%d", &nova.numeroConta);
