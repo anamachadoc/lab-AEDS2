@@ -4,7 +4,6 @@
 #include"ex11.h"
 
 void criarConta (contaBancaria* c, int numero, char *titular) {
-    printf ("\n\n%s\n", titular);
    c->numeroConta = numero;
    strcpy (c->titular, titular);
    c->saldo = 0;
@@ -12,17 +11,26 @@ void criarConta (contaBancaria* c, int numero, char *titular) {
 }
 
 void depositar (contaBancaria *c, double valor) {
-    c->saldo += valor;
-    printf ("deposito no valor de %lf foi realizado!\n", valor);
+    if (valor > 0) {
+        c->saldo += valor;
+        printf ("deposito no valor de %lf foi realizado!\n", valor);
+    } else {
+        printf ("nao eh possivel realizar deposito de valor nao positivos!\n");
+    }
 }
 
 void sacar (contaBancaria *c, double valor) {
-    if (c->saldo - valor < 0) {
+    if (valor > 0) {
+        if (c->saldo - valor < 0) {
         printf ("impossivel realizar um saque no valor de %lf, pois nao ha saldo suficiente!\n", valor);
-    } else {
+        } else {
         c->saldo -= valor;
         printf ("saque no valor de %.2lf foi realizado!\n", valor);
+        }
+    } else {
+        printf ("nao eh possivel sacar valores nao positivos!\n");
     }
+    
 }
 
 double consultarSaldo (contaBancaria *c) {
@@ -31,6 +39,5 @@ double consultarSaldo (contaBancaria *c) {
 
 void imprimirInfo(contaBancaria *c) {
     printf ("\n informações da conta: \n");
-    printf ("%s\n", c->titular);
-    printf (" titular: %s\n numero da conta: %d\n saldo: %lf", c->titular, c->numeroConta, c->saldo);
+    printf (" titular: %s numero da conta: %d\n saldo: %lf\n", c->titular, c->numeroConta, c->saldo);
 }

@@ -1,0 +1,19 @@
+Desenvolva um programa de gerenciamento de catálogo de produtos para uma loja. Crie a
+estrutura CatalogoProdutos para encapsular as informações dos produtos, incluindo nome,
+preço e quantidade.
+Instruções:
+• Defina a estrutura Produto para encapsular as informações individuais de cada produto,
+incluindo nome, preço e quantidade.
+• A estrutura CatalogoProdutos deve conter um array de estruturas Produto para armazenar até 100 produtos no catálogo e um inteiro indicando o total de produtos no
+catálogo.
+• Implemente as seguintes funções para manipular o catálogo de produtos (próximo slide).
+Funções para o catálogo de produtos:
+• void criarCatalogo(CatalogoProdutos *c);
+– Cria um catálogo vazio, zerando o total de produtos.
+• void adicionarProduto(CatalogoProdutos *c, char *nome, double preco, int quantidade).
+– Adiciona um novo produto ao catálogo.
+• int verificarEstoque(CatalogoProdutos *c, char *nome).
+– Verifica a quantidade em estoque de um produto.
+• void imprimirCatalogo(CatalogoProdutos *c).
+– Imprime todas as informações dos produtos no catálogo.
+Defina uma Main para testar.

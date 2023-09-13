@@ -5,5 +5,6 @@
 void menuUsuario (contaBancaria*);
 contaBancaria dadosCliente ();
 double quantia ();
+double verifica (contaBancaria*);
 
 #endif

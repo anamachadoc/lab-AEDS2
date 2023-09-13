@@ -15,20 +15,27 @@ void menuUsuario (contaBancaria* conta) {
             case 1:
                 nova = dadosCliente();
                 criarConta (conta, nova.numeroConta, nova.titular);
-                printf ("conta criada!\n");
                 break;
             case 2:
-                depositar (conta, quantia());
+                if (verifica(conta) != -1) {
+                    depositar (conta, quantia());
+                }
                 break;
             case 3:
-                sacar (conta, quantia());
+                if (verifica(conta) != -1) {
+                    sacar (conta, quantia());
+                }
                 break;
             case 4:
-                saldo = consultarSaldo (conta);
-                printf ("saldo da conta %d: %.2lf\n", conta->numeroConta, saldo);
+                if (verifica(conta) != -1) {
+                    saldo = consultarSaldo (conta);
+                    printf ("saldo da conta %d: %lf\n", conta->numeroConta, saldo);
+                }
                 break;
             case 5:
-                imprimirInfo(conta);
+                if (verifica(conta) != -1) {
+                    imprimirInfo(conta);
+                }
                 break;
             case 6:
                 free (conta);
@@ -53,10 +60,15 @@ contaBancaria dadosCliente () {
 }
 
 double quantia () {
-    double valor = 0;
-    while (valor <= 0) {
+    double valor;
         printf ("\ndigite um valor valido para a operacao: ");
-        scanf ("%.2lf", &valor);
-    } 
+        scanf ("%lf", &valor);
     return valor;
+}
+
+double verifica (contaBancaria* c) {
+    if (c->saldo == -1) {
+        printf ("crie uma conta antes de realizar as demais operacoes!\n");
+    }
+    return c->saldo;
 }
