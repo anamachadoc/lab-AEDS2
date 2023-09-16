@@ -29,8 +29,7 @@ void sacar (contaBancaria *c, double valor) {
         }
     } else {
         printf ("nao eh possivel sacar valores nao positivos!\n");
-    }
-    
+    } 
 }
 
 double consultarSaldo (contaBancaria *c) {
@@ -38,6 +37,6 @@ double consultarSaldo (contaBancaria *c) {
 }
 
 void imprimirInfo(contaBancaria *c) {
-    printf ("\n informações da conta: \n");
-    printf (" titular: %s numero da conta: %d\n saldo: %lf\n", c->titular, c->numeroConta, c->saldo);
+    printf ("\ninformações da conta: \n");
+    printf ("titular: %snumero da conta: %d\nsaldo: %lf\n", c->titular, c->numeroConta, c->saldo);
 }

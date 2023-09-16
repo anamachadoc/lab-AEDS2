@@ -4,5 +4,6 @@
 
 void menuUsuario (catalogoProdutos*);
 Produto infoProduto ();
+double verifica (catalogoProdutos* c);
 
 #endif

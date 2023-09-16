@@ -61,8 +61,8 @@ contaBancaria dadosCliente () {
 
 double quantia () {
     double valor;
-        printf ("\ndigite um valor valido para a operacao: ");
-        scanf ("%lf", &valor);
+    printf ("\ndigite um valor valido para a operacao: ");
+    scanf ("%lf", &valor);
     return valor;
 }
 

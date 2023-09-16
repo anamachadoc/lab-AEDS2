@@ -9,7 +9,7 @@ typedef struct {
 
 typedef struct {
     Produto *prodDisponivel; // array de produtos
-    int quantProduto;
+    int quantProdutos;
 } catalogoProdutos;
 
 void criarCatalogo (catalogoProdutos *c);
