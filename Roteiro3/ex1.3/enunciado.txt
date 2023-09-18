@@ -1,0 +1,14 @@
+Desenvolva um TAD que represente um conjunto de inteiros. Para isso, utilize um vetor de
+inteiros. O TAD deverá conter as seguintes funções:
+• criar um conjunto vazio;
+• união de dois conjuntos;
+• inserir um elemento no conjunto;
+• remover um elemento do conjunto;
+• intersecção entre dois conjuntos;
+• diferença de dois conjuntos;
+• testar se um número pertence ao conjunto;
+• menor valor do conjunto;
+• maior valor do conjunto;
+• testar se dois conjuntos são iguais;
+• tamanho do conjunto;
+• testar se o conjunto é vazio.
