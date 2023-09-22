@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-I.
-DEPS = menu.h conjunto.h
-OBJ = main.o menu.o conjunto.o
+DEPS = conjunto.h
+OBJ = main.o conjunto.o
 EXEC = exec
 
 %.o: %.c $(DEPS)

@@ -1,5 +1,6 @@
 #ifndef CUBO_H
 #define CUBO_H
+#include"stdio.h"
 
 typedef struct {
     float lado;

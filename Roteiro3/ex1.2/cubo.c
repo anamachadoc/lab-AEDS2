@@ -1,4 +1,3 @@
-#include<stdio.h>
 #include"cubo.h"
 
 void inicializar(Cubo* c) {

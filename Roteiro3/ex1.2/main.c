@@ -1,6 +1,5 @@
 #include"cubo.h"
-#include<stdio.h>
-
+ 
 int main () {
     Cubo c;
     inicializar (&c);

@@ -15,9 +15,9 @@ int tamanhoConjunto (Conjunto C) {
 
 void conjuntoVazio (Conjunto C) {
     if (C.numElementos == 0) {
-        printf ("\nconjunto vazio!");
+        printf ("\nconjunto vazio!\n");
     } else {
-        printf ("\nconjunto nao vazio: possui %d elementos", C.numElementos);
+        printf ("conjunto nao vazio: possui %d elementos\n\n", C.numElementos);
     }
 }
 
@@ -126,7 +126,6 @@ void imprimirConjunto (Conjunto C) {
     if (C.numElementos == 0) {
         printf ("\nconjunto vazio!");
     } else {
-        printf ("\nos elementos do conjunto sao: ");
         for (int i = 0; i < C.numElementos; i++) {
         printf ("[%d] ", C.vetorElementos[i]);
         }

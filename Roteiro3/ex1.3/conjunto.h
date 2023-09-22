@@ -1,7 +1,7 @@
 #ifndef CUBO_H
 #define CUBO_H
 
-typedef int elemento;
+typedef int elemento; // elemento para representar os elementos do conjunto
 
 typedef struct {
     elemento* vetorElementos;
