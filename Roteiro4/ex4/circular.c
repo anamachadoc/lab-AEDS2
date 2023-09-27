@@ -1,5 +1,15 @@
 #include"circular.h"
 
+
+Lista* criaLista(){
+    Lista *li;
+    li = (Lista*) malloc (sizeof(Lista));
+    if(li != NULL){
+        *li = NULL;
+    }
+    return li;
+}
+
 int listaVazia(Lista *li){
     if(li == NULL) return 1;
     if(*li == NULL) return 1;//True - Vazia!
@@ -104,6 +114,22 @@ void imprimeLista(Lista* li){
     printf("\n");
 }
 
+int tamanho (Lista* li) {
+    if (li != NULL && (*li) != NULL) {
+        int tam = 1;
+        NO *prim, *aux;
+        prim = *li;
+        aux = (*li)->prox;
+        while (aux != prim) {
+            tam++;
+            aux = aux->prox;
+        }
+        return tam;
+    } else {
+        return 0;
+    }
+}
+
 void destroiLista(Lista *li){
     if(li != NULL && (*li) != NULL){
         NO* prim, *aux;
@@ -118,6 +144,34 @@ void destroiLista(Lista *li){
         printf("Destruindo.. %d\n", prim->info);
         liberarNO(prim);
         free(li);
+    }
+}
+
+int procura (Lista *li, int elem) {
+    if(li != NULL && (*li) != NULL){
+        int posicao = 1;
+        NO* aux = (*li)->prox;
+        NO* prim = *li;
+        if (prim->info == elem) {
+            return posicao;
+        } else {
+            while (aux != prim) {
+                posicao++;
+                if (aux->info == elem) {
+                    return posicao;
+                }
+                aux = aux->prox;
+            }
+        }
+    } 
+    return 0;
+}
+
+int verifica (int posicao) {
+    if (posicao == 0) {
+        printf ("o elemento nao esta na lista!\n");
+    } else {
+        printf ("elemento na posicao %d da lista!\n", posicao);
     }
 }
 

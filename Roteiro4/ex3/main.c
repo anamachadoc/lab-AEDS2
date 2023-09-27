@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "LCSE.h"
+#include "LDE.h"
 
 int main(){
     Lista *L;
@@ -21,7 +21,5 @@ int main(){
     imprimeLista(L);
 
     destroiLista(L);
-
-
     return 0;
 }

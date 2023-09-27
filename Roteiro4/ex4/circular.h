@@ -6,8 +6,8 @@
 | Modificado por Ana Cláudia Machado em 27/09/2023      |
 +-------------------------------------------------------+ */
 
-#ifndef LCSE_H
-#define LCSE_H
+#ifndef CIRCULAR_H
+#define CIRCULAR_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,23 +19,18 @@ typedef struct NO{
 
 typedef struct NO* Lista;
 
-Lista* criaLista(){
-    Lista *li;
-    li = (Lista*) malloc (sizeof(Lista));
-    if(li != NULL){
-        *li = NULL;
-    }
-    return li;
-}
-
+Lista* criaLista();
 int listaVazia(Lista*);
 NO* alocarNO();
 void liberarNO(NO*);
 int insereIni(Lista*, int);
-int insereFim(Lista, int);
+int insereFim(Lista*, int);
 int removeIni(Lista*);
 int removeFim(Lista*);
 void imprimeLista(Lista*);
 void destroiLista(Lista*);
+int tamanho (Lista*);
+int procura (Lista*, int);
+int verifica (int);
 
-*endif
+#endif

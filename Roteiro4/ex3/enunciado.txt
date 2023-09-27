@@ -1,0 +1,9 @@
+3.1 Reimplemente o TAD: Lista Duplamente Encadeada visto em aula. Faça o desenho rastreio
+(no papel) da inserção de 3 elementos a partir de uma lista vazia (no fim/no início), depois
+impressão, e depois liberação da lista.
+3.2 Ficou faltando as operações (Tamanho(L)) e (Procura(L, x)) para o TAD, implemente-as e
+teste.
+3.3 Crie uma nova operação de inserção, de forma que a lista se mantenha ordenada a cada nova
+inserção;
+3.4 Crie uma nova operação de remoção, que remove a primeira ocorrência de um elemento
+específico na lista, caso exista;
