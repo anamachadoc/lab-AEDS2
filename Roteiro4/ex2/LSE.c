@@ -168,3 +168,32 @@ int insereOrdenada(Lista* li, int elem){
     }
 }
 
+int removeElem (Lista* li, int elem) {
+    if (li == NULL) return 0;
+    if (listaVazia(li)) return 0;
+    NO* aux = *li;
+    NO* temp = NULL;
+    if (aux->info == elem) { // removendo primeiro elemento
+        removeIni (li);
+        return 1;
+    }
+    while (aux->prox != NULL) { // removendo demais elementos
+        temp = aux;
+        aux = aux->prox;
+        if (aux->info == elem) {
+            temp->prox = aux->prox;
+            liberarNO(aux);
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void remocao (int verifica) {
+    if (verifica == 0) {
+        printf ("o elemento nao esta na lista!\n");
+    } else {
+        printf ("o elemento foi removido com sucesso!\n");
+    }
+}
+

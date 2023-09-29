@@ -10,9 +10,10 @@ int main(){
     }
     imprimeLista(L);
     printf ("o tamanho da lista eh %d\n", tamanho(L));
-    verifica (procura (L, 100));
+    printf ("procurando o elemento 14 na lista:\n");
+    verifica (procura (L, 14));
+    printf ("procurando o elemento 96, que nao esta na lista:\n");
+    verifica (procura (L, 96));
     destroiLista(L);
-
-
     return 0;
 }

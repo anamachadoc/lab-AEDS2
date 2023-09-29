@@ -32,5 +32,8 @@ int procura (Lista*, int);
 void verifica (int);
 int tamanho (Lista*);
 int insereOrdenada (Lista*, int);
+int removeElem (Lista*, int);
+void remocao (int);
+
 
 #endif

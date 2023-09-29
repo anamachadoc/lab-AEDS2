@@ -83,7 +83,7 @@ int removeFim(Lista *li){
 void imprimeLista(Lista* li){
     if(li == NULL) return;
     if(listaVazia(li)){
-        printf("Lista Vazia!\n");
+        printf("Lista vazia!\n");
         return;
     }
     printf("Elementos:\n");
@@ -105,5 +105,109 @@ void destroiLista(Lista* li){
             liberarNO(aux);
         }
         free(li);
+    }
+}
+
+int tamanho (Lista* li) {
+    if(li == NULL) return 0;
+    if(listaVazia(li)) return 0;
+    NO* aux = *li;
+    int tam = 1;
+    while (aux->prox != NULL) {
+        tam++;
+        aux = aux->prox;
+    }
+    return tam;
+}
+
+int procura (Lista* li, int elem) {
+    if(li == NULL) return -1;
+    if(listaVazia(li)) return -1;
+    int indice = 0;
+    NO* aux = *li;
+        while(aux->prox != NULL) {
+            indice++;
+            if (aux->info == elem) {
+                return indice;
+            }
+            aux = aux->prox;
+        }
+        return -1;
+}
+
+void verifica (int indice) {
+    if (indice == -1) {
+        printf ("o elemento nao esta na lista!\n");
+    } else {
+        printf ("o elemento esta na posicao %d\n", indice);
+    }
+}
+
+int insereOrdenada(Lista* li, int elem){
+    if(li == NULL) return 0;
+    NO* novo = alocarNO();
+    if(novo == NULL) return 0;
+    novo->info = elem;
+    novo->prox = NULL;
+    novo->ant = NULL;
+    if (listaVazia(li)) { // primeiro elemento
+        *li = novo;
+        return 1;
+    } else { // ja tem elementos
+        NO* aux = *li;
+        if (aux->info > elem) {
+            *li = novo;
+            novo->prox = aux;
+            return 1;
+        } else {
+            while (aux->prox != NULL) {
+                if (aux->prox->info > elem) {
+                    novo->info = elem;
+                    aux->prox->ant = novo;
+                    novo->prox = aux->prox;
+                    novo->ant = aux; 
+                    aux->prox = novo;
+                    return 1;
+                }
+                aux = aux->prox;
+            }
+            aux->prox = novo;
+            return 1;
+        }
+    }
+}
+
+int removeElem (Lista* li, int elem) {
+    if (li == NULL) return 0;
+    if (listaVazia(li)) return 0;
+    NO* aux = *li;
+    NO* temp = NULL;
+    if (aux->info == elem) { // removendo primeiro elemento
+        removeIni (li);
+        return 1;
+    }
+    while (aux->prox->prox != NULL) { // removendo demais elementos
+        temp = aux;
+        aux = aux->prox;
+        if (aux->info == elem) {
+            temp->prox = aux->prox;
+            aux->prox->ant = temp;
+            liberarNO(aux);
+            return 1;
+        }
+    }
+    if (aux->prox->info == elem) { // removendo o ultimo elemento
+        liberarNO(aux->prox);
+        aux->prox = NULL;
+        return 1;
+    }
+    return 0;
+}
+
+void remocao (int verifica) {
+    if (verifica == 0) {
+        printf ("o elemento nao esta na lista!\n");
+    } else {
+        printf ("o elemento foi removido com sucesso!\n");
     }
 }

@@ -1,6 +1,5 @@
 #include"circular.h"
 
-
 Lista* criaLista(){
     Lista *li;
     li = (Lista*) malloc (sizeof(Lista));
@@ -138,10 +137,10 @@ void destroiLista(Lista *li){
         while((*li) != prim){
             aux = *li;
             *li = (*li)->prox;
-            printf("Destruindo.. %d\n", aux->info);
+            //printf("Destruindo.. %d\n", aux->info);
             liberarNO(aux);
         }
-        printf("Destruindo.. %d\n", prim->info);
+        //printf("Destruindo.. %d\n", prim->info);
         liberarNO(prim);
         free(li);
     }
