@@ -1,2 +1,10 @@
-Ffa¸ca uma implementa¸c˜ao de um TAD: Fila Simplesmente Encadeada com as mesmas opera¸c˜oes e que use uma estrutura similar `a uma Lista Simplesmente
-Encadeada
+Reimplemente o TAD: Pilha Sequencial Est´atica visto em aula e teste cada uma das suas
+opera¸c˜oes. Crie uma Main.c com um menu (do..while) com as seguintes op¸c˜oes, chamando
+as opera¸c˜oes:
+• 1 - Criar pilha;
+• 2 - Empilhar um item;
+• 3 - Ver o topo da pilha.
+• 4 - Desempilhar um item;
+• 5 - Imprimir a pilha;
+• 6 - Destruir a pilha;
+• 7 - Sair;

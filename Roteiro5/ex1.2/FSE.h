@@ -1,8 +1,10 @@
 #ifndef FSE_H
 #define FSE_H
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct NO{
-    int info ;
+    int info;
     struct NO* prox ;
 } NO;
 
@@ -13,11 +15,13 @@ typedef struct {
 } Fila ;
 
 Fila* criaFila ();
-int filaVazia (Fila*);
-int insere (Fila*, int);
-int remove (Fila*);
+int estaVazia (Fila*);
+int enfileirar (Fila*, int);
+int desenfileirar (Fila*);
 int tamanho (Fila*);
-int consultaElem (Fila*, int*);
+int verInicio (Fila*, int*);
 void destroiFila (Fila*);
+void imprime (Fila*);
+int estaCheia (Fila*);
 
 #endif

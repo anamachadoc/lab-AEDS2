@@ -1,9 +1,10 @@
-#include "filaSE.h"
 #include"menu.h"
+
 int main(){
     int opc, elem; 
     Fila *F = NULL;
     int *inicio;
+    printf ("\n     FILA SIMPLESMENTE ENCADEADA\n");
     do {
         printf ("\n============== MENU ==============\n");
         printf (" 1. Criar uma nova fila\n 2. Enfileirar um item\n 3. Ver o início da fila\n 4. Desinfileirar um item\n 5. Imprimir a fila\n 6. Destruir a fila\n 7. Sair\n      ");
@@ -26,7 +27,7 @@ int main(){
                 }
                 break;
             case 3: // ver inicio da fila
-                if (existeFila(F)) {
+                if (existeFila(F) == 1) {
                     if (verInicio (F, inicio)) {
                         printf ("inicio da fila: %d\n", *inicio);
                     } else {
@@ -37,21 +38,21 @@ int main(){
                 }
                 break;
             case 4: // desenfileirar
-                if (existeFila(F)) {
+                if (existeFila(F) == 1) {
                     mensagemResultado (desenfileirar (F));
                 } else {
                     semFila();
                 }
                 break;
             case 5: // imprimir
-                if (existeFila(F)) {
+                if (existeFila(F) == 1) {
                     imprime (F);
                 } else {
                     semFila();
                 }
                 break;
             case 6:
-                if (existeFila(F)) {
+                if (existeFila(F) == 1) {
                     destroiFila(F);
                     printf (" - Fila destruida com sucesso!\n");
                     F = NULL;
