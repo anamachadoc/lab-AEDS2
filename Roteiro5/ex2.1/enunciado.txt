@@ -1,6 +1,6 @@
-Reimplemente o TAD: Pilha Sequencial Est´atica visto em aula e teste cada uma das suas
-opera¸c˜oes. Crie uma Main.c com um menu (do..while) com as seguintes op¸c˜oes, chamando
-as opera¸c˜oes:
+Reimplemente o TAD: Pilha Sequencial Estática visto em aula e teste cada uma das suas
+operações. Crie uma Main.c com um menu (do..while) com as seguintes opções, chamando
+as operações:
 • 1 - Criar pilha;
 • 2 - Empilhar um item;
 • 3 - Ver o topo da pilha.

@@ -1,1 +1,1 @@
-Fa¸ca uma implementa¸c˜ao de um TAD: Pilha Simplesmente Encadeada
+Faça uma implementação de um TAD: Pilha Simplesmente Encadeada

@@ -1,2 +1,2 @@
-Ffa¸ca uma implementa¸c˜ao de um TAD: Fila Simplesmente Encadeada com as mesmas opera¸c˜oes e que use uma estrutura similar `a uma Lista Simplesmente
-Encadeada
+Faça uma implementação de um TAD: Fila Simplesmente Encadeada com as mesmas operações e que use uma estrutura
+similar à uma Lista Simplesmente Encadeada.
