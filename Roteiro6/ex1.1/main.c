@@ -7,7 +7,7 @@ int main(){
     printf ("\n     DEQUE SEQUENCIAL ESTATICO    \n");
     do {
         printf ("\n============== MENU ==============\n");
-        printf (" • 1 - Criar Deque\n• 2 - Inserir um item no fim;\n• 3 - Inserir um item no inicio;\n• 4 - Ver o inicio do Deque.\n• 5 - Ver o fim do Deque.\n• 6 - Remover um item do fim;\n• 7 - Remover um item do inicio;\n• 8 - Imprimir o Deque;\n• 9 - Destruir o Deque;\n• 10 - Sair;\n");
+        printf ("• 1 - Criar Deque\n• 2 - Inserir um item no fim;\n• 3 - Inserir um item no inicio;\n• 4 - Ver o inicio do Deque.\n• 5 - Ver o fim do Deque.\n• 6 - Remover um item do fim;\n• 7 - Remover um item do inicio;\n• 8 - Imprimir o Deque;\n• 9 - Destruir o Deque;\n• 10 - Sair;\n");
         scanf ("%d",&opc);
         switch (opc) {
             case 1: // criar deque
@@ -26,7 +26,7 @@ int main(){
             case 4: // ver inicio do deque
                 if (existeDeque(dq)) {
                     if(verInicio (dq, verElem)) {
-                        printf (" - Inicio do deque: %d\n", verElem);
+                        printf (" - Inicio do deque: %d\n", *verElem);
                     } else {
                         printf (" - Deque vazio!\n");
                     }
@@ -37,7 +37,7 @@ int main(){
             case 5: // ver fim do deque
                 if (existeDeque(dq)) {
                     if(verFim (dq, verElem)) {
-                        printf (" - Inicio do deque: %d\n", verElem);
+                        printf (" - Inicio do deque: %d\n", *verElem);
                     } else {
                         printf (" - Deque vazio!\n");
                     }
@@ -61,6 +61,7 @@ int main(){
             case 9: // destruir
                 if (existeDeque(dq)) {
                     destroiDeque(dq);
+                    printf (" - Deque destruido!\n");
                 } else {
                     semDeque();
                 }
