@@ -12,10 +12,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX 100
-
 typedef struct{
-    int dados[MAX][MAX];
+    int **dados;
     int lin, col;
 }Matriz;
 
