@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct {
     char nome[20];
@@ -32,21 +33,18 @@ ABP* criaABP();
 void destroiRec(NO*);
 void destroiABP(ABP*);
 int estaVazia(ABP*);
-int insereRec(NO**, int);
-int insereIte(NO**, int);
-int insereElem(ABP*, int);
-int pesquisaRec(NO**, int);
-int pesquisaIte(NO**, int);
-int pesquisa(ABP*, int);
-int removeRec(NO**, int);
+int insereRec(NO**, Aluno);
+int insereElem(ABP*, Aluno);
+int pesquisaRec(NO**, Aluno*);
+int pesquisa(ABP*, Aluno*);
 NO* removeAtual(NO*);
-int removeIte(NO**, int);
-int removeElem(ABP*, int);
+int removeIte(NO**, Aluno);
+int removeElem(ABP*, Aluno);
 void em_ordem(NO*, int);
-void pre_ordem(NO*, int);
-void pos_ordem(NO*, int);
-void imprime(ABP*);
-void numNos (NO*, int*);
+void limpar (void);
+void imprimeAluno (Aluno);
+Aluno infoAluno();
+
 
 #endif
 
