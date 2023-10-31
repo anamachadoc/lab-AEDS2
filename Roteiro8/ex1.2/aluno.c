@@ -44,20 +44,14 @@ int insereRec(NO** raiz, Aluno al){
         novo->esq = NULL; novo->dir = NULL;
         *raiz = novo;
     }else{
-        
-        int comp = strcmp("ana", "paulo");
-        printf ("%d\n", comp);
-        printf ("%s\n", al.nome);
-        printf ("%s\n", (*raiz)->info.nome);
-        if(strcmp((*raiz)->info.nome, al.nome) == 0){
+        int comparacao = strcmp(al.nome, (*raiz)->info.nome);
+        printf ("%d", comparacao);
+        if(comparacao == 0){
             printf("\nAluno ja adicionado!"); 
             return 0;
-        }
-        if(strcmp(al.nome, (*raiz)->info.nome) == -1) {
-            printf ("antes");
+        } else if(comparacao < 0) {
             return insereRec(&(*raiz)->esq, al);
-        } else if(strcmp(al.nome, (*raiz)->info.nome) == 1) {
-            printf ("depois");
+        } else {
             return insereRec(&(*raiz)->dir, al);
         }
     }
@@ -159,17 +153,14 @@ void em_ordem(NO* raiz, int nivel){
 }
 
 Aluno infoAluno() {
-    limpar();
     Aluno novo;
     printf ("\nDigite o nome do aluno: ");
     fgets (novo.nome, 20, stdin);
     limpar ();
     printf ("Digite a matricula: ");
     scanf ("%d", &novo.matricula);
-    limpar();
-    printf ("\nDigite a nota: ");
+    printf ("Digite a nota: ");
     scanf ("%lf", &novo.nota);
-    limpar();
     return novo;
 }
 
@@ -184,7 +175,7 @@ void limpar () {
     int ch;
     do {
         ch = fgetc(stdin);
-    } while (ch != EOF && ch != '\n');
+    } while (ch != EOF && ch != '\n' && ch != '\0');
 }
 
 
