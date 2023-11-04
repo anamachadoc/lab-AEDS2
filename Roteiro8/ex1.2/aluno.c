@@ -45,7 +45,6 @@ int insereRec(NO** raiz, Aluno al){
         *raiz = novo;
     }else{
         int comparacao = strcmp(al.nome, (*raiz)->info.nome);
-        printf ("%d", comparacao);
         if(comparacao == 0){
             printf("\nAluno ja adicionado!"); 
             return 0;
@@ -83,56 +82,43 @@ int pesquisa(ABP* raiz, Aluno* al){
     return pesquisaRec(raiz, al);
 }
 
-NO* removeAtual(NO* atual){
-    NO* no1, *no2;
-    //Ambos casos no if(atual->esq == NULL)
-    //Caso 1 - NO sem filhos
-    //Caso 2.1 - Possui apenas uma subarvore direita
-    if(atual->esq == NULL){
-        no2 = atual->dir;
-        liberarNO(atual);
-        return no2;
-    }
-    //Caso 3 - Possui as duas subarvores (esq e dir)
-    //Estrategia: 
-
-    no1 = atual;
-    no2 = atual->esq;
-    while(no2->dir != NULL){
-        no1 = no2;
-        no2 = no2->dir;
-    }
-    if(no1 != atual){
-        no1->dir = no2->esq;
-        no2->esq = atual->esq;
-    }
-    no2->dir = atual->dir;
-    liberarNO(atual);
-    return no2;
-}
-
-int removeIte(NO** raiz, Aluno al){
+int removeRec(NO** raiz, Aluno al){
     if(*raiz == NULL) return 0;
-    NO* atual = *raiz, *ant = NULL;
-    while(atual != NULL){
-        if(strcmp((*raiz)->info.nome, al.nome) == 0) {
-            if(atual == *raiz)
-                *raiz = removeAtual(atual);
-            else{
-                if(ant->dir == atual)
-                    ant->dir = removeAtual(atual);
-                else
-                    ant->esq = removeAtual(atual);
-            }
-            return 1;
+    int comparacao = strcmp(al.nome, (*raiz)->info.nome);
+    if(comparacao == 0){
+        NO* aux;
+        if((*raiz)->esq == NULL && (*raiz)->dir == NULL){
+            //Caso 1 - NO sem filhos
+            liberarNO(*raiz);
+            *raiz = NULL;
+        }else if((*raiz)->esq == NULL){
+            //Caso 2.1 - Possui apenas uma subarvore direita
+            aux = *raiz;
+            *raiz = (*raiz)->dir;
+            liberarNO(aux);
+        }else if((*raiz)->dir == NULL){
+            //Caso 2.2 - Possui apenas uma subarvore esquerda
+            aux = *raiz;
+            *raiz = (*raiz)->esq;
+            liberarNO(aux);
+        }else{
+            //Caso 3 - Possui as duas subarvores (esq e dir)
+            //Duas estrategias:
+            //3.1 - Substituir pelo NO com o MAIOR valor da subarvore esquerda
+            //3.2 - Substituir pelo NO com o MENOR valor da subarvore direita
+            //Estrategia 3.1:
+            NO* Filho = (*raiz)->esq;
+            while(Filho->dir != NULL)//Localiza o MAIOR valor da subarvore esquerda
+                Filho = Filho->dir;
+            (*raiz)->info = Filho->info;
+            Filho->info = al;
+            return removeRec(&(*raiz)->esq, al);
         }
-        ant = atual;
-        if(strcmp(al.nome, (*raiz)->info.nome) == -1)
-            atual = atual->esq;
-        else if (strcmp(al.nome, (*raiz)->info.nome) == 1)
-            atual = atual->dir;
-    }
-    return 0;
+        return 1;
+    }else if(comparacao < 0)
+        return removeRec(&(*raiz)->esq, al);
+    else 
+        return removeRec(&(*raiz)->dir, al);
 }
 
 int removeElem(ABP* raiz, Aluno al){
@@ -140,7 +126,7 @@ int removeElem(ABP* raiz, Aluno al){
         printf("\nAluno inexistente!");
         return 0;
     }
-    return removeIte(raiz, al);
+    return removeRec(raiz, al);
 }
 
 void em_ordem(NO* raiz, int nivel){
@@ -152,7 +138,28 @@ void em_ordem(NO* raiz, int nivel){
     }
 }
 
+void maiorNota (NO* raiz, Aluno* al) {
+    if (raiz != NULL) {
+        if (raiz->info.nota > al->nota || al->nota == -1) {
+            *al = raiz->info;
+        }
+        maiorNota (raiz->esq, al);
+        maiorNota (raiz->dir, al);
+    }
+}
+
+void menorNota (NO* raiz, Aluno* al) {
+    if (raiz != NULL) {
+        if (raiz->info.nota < al->nota || al->nota == -1) {
+            *al = raiz->info;
+        }
+        menorNota (raiz->esq, al);
+        menorNota (raiz->dir, al);
+    }
+}
+
 Aluno infoAluno() {
+    limpar ();
     Aluno novo;
     printf ("\nDigite o nome do aluno: ");
     fgets (novo.nome, 20, stdin);
@@ -168,14 +175,16 @@ void imprimeAluno (Aluno al) {
     printf ("\nInformacoes do aluno:\n");
     printf ("Nome: %s", al.nome); 
     printf ("Matricula: %d\n", al.matricula);
-    printf ("Nota: %lf\n", al.nota);
+    printf ("Nota: %.2lf\n", al.nota);
 }
 
 void limpar () {
-    int ch;
-    do {
-        ch = fgetc(stdin);
-    } while (ch != EOF && ch != '\n' && ch != '\0');
+    fflush(stdin);
+}
+
+void reiniciarAluno (Aluno *al) {
+    al->matricula = 0;
+    al->nota = -1;
 }
 
 

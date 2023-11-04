@@ -44,6 +44,9 @@ void em_ordem(NO*, int);
 void limpar (void);
 void imprimeAluno (Aluno);
 Aluno infoAluno();
+void reiniciarAluno (Aluno*);
+void maiorNota (NO*, Aluno*);
+void menorNota (NO*, Aluno*);
 
 
 #endif

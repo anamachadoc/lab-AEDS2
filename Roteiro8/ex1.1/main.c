@@ -6,7 +6,7 @@ int main () {
     printf ("\n     ARVORE ABP    \n");
     do {
         printf ("\n============== MENU ==============\n");
-        printf (" 1. Criar ABP\n 2. Inserir um elemento\n 3. Buscar um elemento\n 4. Remover um elemento\n 5. Imprimir a ABP em ordem\n 6. Imprimir a ABP em pré-ordem\n 7. Imprimir a ABP em pós-ordem\n 8. Mostrar a quantidade de nós da ABP\n 9. Destruir a ABP\n 10. Sair\n      ");
+        printf (" 1. Criar ABP\n 2. Inserir um elemento\n 3. Buscar um elemento\n 4. Remover um elemento\n 5. Imprimir a ABP em ordem\n 6. Imprimir a ABP em pre-ordem\n 7. Imprimir a ABP em pos-ordem\n 8. Mostrar a quantidade de nos da ABP\n 9. Destruir a ABP\n 10. Sair\n      ");
         scanf ("%d",&opc);
         switch (opc) {
             case 1: // criar ABP

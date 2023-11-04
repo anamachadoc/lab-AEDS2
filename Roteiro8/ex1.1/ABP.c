@@ -45,7 +45,7 @@ int insereRec(NO** raiz, int elem){
         *raiz = novo;
     }else{
         if((*raiz)->info == elem){
-            printf("Elemento Existente!\n"); 
+            printf("\nElemento Existente!"); 
             return 0;
         }
         if(elem < (*raiz)->info)
@@ -166,6 +166,14 @@ NO* removeAtual(NO* atual){
         liberarNO(atual);
         return no2;
     }
+
+    //Caso 2.2 - Possui apenas uma subarvore esquerda
+    if(atual->dir == NULL){
+        no2 = atual->esq;
+        liberarNO(atual);
+        return no2;
+    }
+
     //Caso 3 - Possui as duas subarvores (esq e dir)
     //Estrategia: 
 
@@ -210,7 +218,7 @@ int removeIte(NO** raiz, int elem){
 
 int removeElem(ABP* raiz, int elem){
     if(pesquisa(raiz, elem) == 0){
-        printf("Elemento inexistente!\n");
+        printf("\nElemento inexistente!");
         return 0;
     }
     //return removeRec(raiz, elem);
@@ -252,7 +260,7 @@ void pos_ordem(NO* raiz, int nivel){
 void imprime(ABP* raiz){
     if(raiz == NULL) return;
     if(estaVazia(raiz)){
-        printf("Arvore Vazia!\n");
+        printf("\nArvore Vazia!");
         return;
     }
     printf("\nEm Ordem: "); em_ordem(*raiz, 0);
