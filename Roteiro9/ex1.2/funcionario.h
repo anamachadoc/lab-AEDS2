@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define MAIOR(a, b) ((a > b) ? (a) : (b))
 
 typedef struct {
@@ -20,7 +21,7 @@ typedef struct {
 } Funcionario;
 
 typedef struct NO{
-    Funcionario func;
+    Funcionario info;
     int fb, alt;
     struct NO* esq;
     struct NO* dir;
@@ -44,21 +45,22 @@ void avl_RotEsqDir2(NO**);
 void avl_RotDirEsq2(NO**);
 void avl_AuxFE(NO**);
 void avl_AuxFD(NO**);
-int insereRec(NO**, int);
-int insereElem(AVL*, int);
-int pesquisaRec(NO**, int);
-int pesquisa(AVL*, int);
-int removeRec(NO**, int);
-int removeElem(AVL*, int);
+int insereRec(NO**, Funcionario);
+int insereElem(AVL*, Funcionario);
+int pesquisaRec(NO**, Funcionario*);
+int pesquisa(AVL*, Funcionario*);
+int removeRec(NO**, Funcionario);
+int removeElem(AVL*, Funcionario);
 void em_ordem(NO*, int);
 void pre_ordem(NO*, int);
 void pos_ordem(NO*, int);
 void imprime(AVL*);
 void numNos (NO*, int*);
 void zerarNos (int*);
-void reiniciarFunc (Funcionario*);
 void limpar ();
 void imprimeFunc (Funcionario);
 Funcionario infoFunc();
+int maiorSalario (NO*, Funcionario*);
+int menorSalario (NO*, Funcionario*);
 
 #endif

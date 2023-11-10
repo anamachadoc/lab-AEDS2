@@ -2,11 +2,12 @@
 
 int main () {
     int opc, nos, confere;
+    Funcionario func;
     AVL* A = NULL;
     printf ("\n     ARVORE AVL    \n");
     do {
         printf ("\n============== MENU ==============\n");
-        printf (" 1. Criar AVL\n 2. Inserir um funcionario pelo salario\n 3. Buscar um funcionario pelo salario e imprimir seus dados\n 4. Remover um funcionario pelo nome\n 5. Imprimir a AVL em ordem\n 6. Imprimir as informacoes do funcionario com o maior salario\n7. Imprimir as informacoes do funcionario com o menor salario\n8. Destruir a AVL\n 9. Sair\n      ");
+        printf (" 1. Criar AVL\n 2. Inserir um funcionario pelo salario\n 3. Buscar um funcionario pelo salario e imprimir seus dados\n 4. Remover um funcionario pelo nome\n 5. Imprimir a AVL em ordem\n 6. Imprimir as informacoes do funcionario com o maior salario\n 7. Imprimir as informacoes do funcionario com o menor salario\n 8. Destruir a AVL\n 9. Sair\n      ");
         scanf ("%d",&opc);
         switch (opc) {
             case 1: // criar AVL
@@ -16,13 +17,12 @@ int main () {
                 A = criaAVL();
                 printf ("\nAVL criada com sucesso!");
                 break;
-            case 2: // inserir
+            case 2: // inserir funcionario pelo salario
                 if (existeAVL(A)) {
-                    printf ("\nDigite o elemento a ser inserido: ");
-                    scanf ("%d", &elem);
                     zerarNos (&confere);
                     numNos (*A, &confere);
-                    insereElem(A, elem);
+                    func = infoFunc();
+                    insereElem(A, func);
                     zerarNos (&nos);
                     numNos (*A, &nos);
                     if (nos == (confere + 1)) {
@@ -34,24 +34,25 @@ int main () {
                     semAVL();
                 }
                 break;
-            case 3: // buscar
+            case 3: // buscar funcionario pelo salario
                 if (existeAVL(A)) {
-                    printf ("\nDigite o elemento a ser pesquisado: ");
-                    scanf ("%d", &elem);
-                    if (pesquisa(A, elem)) {
-                        printf ("\nO elemento esta na AVL!");
+                    printf ("\nDigite o salario a ser pesquisado: ");
+                    scanf ("%lf", &func.salario);
+                    if (pesquisa(A, &func)) {
+                       imprimeFunc (func);
                     } else {
-                        printf ("\nO elemento nao esta na AVL!");
+                        printf ("\nO funcionario nao esta na AVL!");
                     }
                 } else {
                     semAVL();
                 }
                 break;
-            case 4: // remover
+            case 4: // remover funcionario pelo nome
                 if (existeAVL(A)) {
+                    limpar ();
                     printf ("\nDigite o elemento a ser removido: ");
-                    scanf ("%d", &elem);
-                    mensagemResultado (removeElem(A, elem));
+                    fgets (func.nome, 20, stdin);
+                    mensagemResultado (removeElem(A, func));
                 } else {
                     semAVL();
                 }
@@ -63,26 +64,34 @@ int main () {
                     semAVL();
                 }
                 break; 
-            case 6: // quantidade de nos
+            case 6: // maior salario
                 if (existeAVL(A)) {
-                    zerarNos (&nos);
-                    numNos(*A, &nos);
-                    printf ("\nA quantidade de nos da AVL eh %d", nos);
+                    printf("la vamos nos");
+                    maiorSalario (*A, &func);
+                    imprimeFunc (func);
                 } else {
                     semAVL();
                 }
                 break;
-            case 7: // destruir
+            case 7: // menor salario
+                if (existeAVL(A)) {
+                    menorSalario (*A, &func);
+                    imprimeFunc (func);
+                } else {
+                    semAVL();
+                }
+                break;
+            case 8: // destruir
                 destroiAVL(A);
                 printf ("\nAVL destruida com sucesso!");
                 A = NULL;
                 break;
-            case 8:
+            case 9: 
                 exit(1);
             default:
                 printf ("\nOpcao invalida! Digite novamente!");
         }
-    } while (opc != 8);
+    } while (opc != 9);
     return 0;
     
 }

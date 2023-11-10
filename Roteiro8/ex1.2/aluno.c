@@ -69,9 +69,9 @@ int pesquisaRec(NO** raiz, Aluno* al){
         al->matricula = (*raiz)->info.matricula;
         return 1;
     }
-    if(strcmp(al->nome, (*raiz)->info.nome) == -1)
+    if(strcmp(al->nome, (*raiz)->info.nome) < 0)
         return pesquisaRec(&(*raiz)->esq, al);
-    else if(strcmp(al->nome, (*raiz)->info.nome) == 1)
+    else if(strcmp(al->nome, (*raiz)->info.nome) > 0)
         return pesquisaRec(&(*raiz)->dir, al);
 }
 

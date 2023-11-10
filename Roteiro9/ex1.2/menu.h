@@ -1,6 +1,6 @@
 #ifndef MENU_H
 #define MENU_H
-#include"AVL.h"
+#include"funcionario.h"
 
 int existeAVL (AVL*);
 void semAVL ();
