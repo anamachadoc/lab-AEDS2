@@ -48,7 +48,7 @@ int altura(NO* raiz){
 
 int FB(NO* raiz){
     if(raiz == NULL) return 0;
-    printf("\nCalculando FB do (%s)..", raiz->info.nome);
+    printf("\nCalculando FB do(a) %s", raiz->info.nome);
     return altura(raiz->esq) - altura(raiz->dir);
 }
 
@@ -239,7 +239,6 @@ int pesquisaRec(NO** raiz, Funcionario* func){
 int pesquisa(AVL* raiz, Funcionario* func){
     if(raiz == NULL) return 0;
     if(estaVazia(raiz)) return 0;
-    printf ("oi");
     return pesquisaRec(raiz, func);
 }
 
@@ -255,13 +254,13 @@ int removeRec(NO** raiz, Funcionario func){
             *raiz = NULL;
         }else if((*raiz)->esq == NULL){
             //Caso 2.1 - Possui apenas uma subarvore direita
-            printf("\nCaso 2.1: Liberando %s..", (*raiz)->info.nome);
+            printf("\nCaso 2.1: Liberando %s", (*raiz)->info.nome);
             aux = *raiz;
             *raiz = (*raiz)->dir;
             liberarNO(aux);
         }else if((*raiz)->dir == NULL){
             //Caso 2.2 - Possui apenas uma subarvore esquerda
-            printf("\nCaso 2.2: Liberando %s..", (*raiz)->info.nome);
+            printf("\nCaso 2.2: Liberando %s", (*raiz)->info.nome);
             aux = *raiz;
             *raiz = (*raiz)->esq;
             liberarNO(aux);
@@ -270,7 +269,7 @@ int removeRec(NO** raiz, Funcionario func){
             //Duas estrategias:
             //3.1 - Substituir pelo NO com o MAIOR valor da subarvore esquerda
             //3.2 - Substituir pelo NO com o MENOR valor da subarvore direita
-            printf("\nCaso 3: Liberando %s..", (*raiz)->info.nome);
+            printf("\nCaso 3: Liberando %s", (*raiz)->info.nome);
             //Estrategia 3.1:
             NO* Filho = (*raiz)->esq;
             while(Filho->dir != NULL)//Localiza o MAIOR valor da subarvore esquerda

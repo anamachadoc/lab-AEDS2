@@ -49,10 +49,19 @@ int main () {
                 break;
             case 4: // remover funcionario pelo nome
                 if (existeAVL(A)) {
+                    zerarNos (&confere);
+                    numNos (*A, &confere);
                     limpar ();
                     printf ("\nDigite o elemento a ser removido: ");
                     fgets (func.nome, 20, stdin);
-                    mensagemResultado (removeElem(A, func));
+                    removeElem(A, func);
+                    zerarNos (&nos);
+                    numNos (*A, &nos);
+                    if (nos == (confere - 1)) {
+                        mensagemResultado(1);
+                    } else {
+                        mensagemResultado(0);
+                    }
                 } else {
                     semAVL();
                 }
@@ -66,7 +75,6 @@ int main () {
                 break; 
             case 6: // maior salario
                 if (existeAVL(A)) {
-                    printf("la vamos nos");
                     maiorSalario (*A, &func);
                     imprimeFunc (func);
                 } else {
