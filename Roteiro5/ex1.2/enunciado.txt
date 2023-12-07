@@ -1,2 +1,0 @@
-Faça uma implementação de um TAD: Fila Simplesmente Encadeada com as mesmas operações e que use uma estrutura
-similar à uma Lista Simplesmente Encadeada.

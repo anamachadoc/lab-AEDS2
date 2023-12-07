@@ -1,1 +1,0 @@
-Faça uma implementação de um TAD: Pilha Simplesmente Encadeada

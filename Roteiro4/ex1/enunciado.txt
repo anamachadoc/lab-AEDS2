@@ -1,7 +1,0 @@
-1.1 Reimplemente o TAD: Lista Sequencial Estática visto em aula.
-1.2 Implemente a operação (Procura(L, x)) que busca e retorna o índice de um elemento X na
-lista, ou -1 caso contrário.
-1.3 Crie uma nova operação de inserção, de forma que a lista se mantenha ordenada a cada nova
-inserção;
-1.4 Crie uma nova operação de remoção, que remove a primeira ocorrência de um elemento
-específico na lista, caso exista;
