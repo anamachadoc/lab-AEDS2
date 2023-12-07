@@ -66,7 +66,7 @@ int it_buscaBinaria(int *v, int ini, int fim, int elem){
         comp++;
         if(elem == v[meio]) return meio;
         else
-            if(elem < meio)
+            if(elem < v[meio])
                 fim = meio-1;
             else
                 ini = meio+1;
