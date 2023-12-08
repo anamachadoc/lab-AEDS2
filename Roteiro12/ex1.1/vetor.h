@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -24,12 +23,6 @@ void preencheAleatorio(int* v, int n, int ini, int fim){
     for(i=0; i<n; i++)
         v[i] = ini + rand() % (fim-ini + 1); 
 }
-
-void troca(int* a, int *b){
-	int aux = *a;
-	*a = *b;
-	*b = aux;
-} 
 
 void resultado (int ind) {
     if(ind != -1)

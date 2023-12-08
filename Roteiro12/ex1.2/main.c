@@ -1,12 +1,10 @@
-#include"sequencial.h"
 #include"binaria.h"
-#include"vetor.h"
 
 int main(){
 
     srand(time(NULL));
     int comp, ind;
-    clock_t seq, bin;
+    clock_t bin;
 
     int *v;
     int n, x;
@@ -20,22 +18,11 @@ int main(){
     printf("Digite um elemento para busca:\n");
     scanf("%d", &x);
 
-    printf ("----------- BUSCA SEQUENCIAL ----------\n");
-
-    comp = 0;
-    seq = clock();
-    ind = buscaSequencial(v, n, x, &comp);
-    seq = clock() - seq;
-    printf("-----Informacoes:\n");
-    printf("Tempo Execucao:  %f seconds.\n", ((float)seq)/CLOCKS_PER_SEC);
-    printf("Comparacoes: %d\n", comp);
-    resultado (ind);
-
     printf ("----------- BUSCA BINARIA ----------\n");
 
     comp = 0;
     QuickSort(v, 0, n-1);
-    printf ("Vetor ordenado:\n");
+    printf ("Vetor ordenado em ordem decrescente:\n");
     imprimeVetor(v, n);
     bin = clock();
     ind = rec_buscaBinaria(v, 0, n-1, x, &comp);

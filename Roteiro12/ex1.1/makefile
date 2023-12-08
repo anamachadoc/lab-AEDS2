@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-I.
-DEPS = ordenacao.h leituraValores.h compara.h
+DEPS = binaria.h sequencial.h vetor.h
 OBJ = main.o 
 EXEC = exec
 
