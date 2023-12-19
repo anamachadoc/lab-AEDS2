@@ -1,6 +1,9 @@
 #include"stdio.h"
 #include"stdlib.h"
 
+#ifndef LEITURAVALORES_H
+#define LEITURAVALORES_H
+
 int* lerArquivo (char *nomeArquivo) {
 int numeroElementos;
 FILE *file = fopen(nomeArquivo, "r");
@@ -11,3 +14,6 @@ int *vetor = (int*)malloc(numeroElementos * sizeof(int));
   }
 return vetor;  
 }
+
+#endif
+

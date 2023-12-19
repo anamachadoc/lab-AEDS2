@@ -4,6 +4,8 @@
 |					      		                        |
 | Implementado por Guilherme C. Pena em 23/11/2023      |
 +-------------------------------------------------------+ */
+#ifndef BINARIA_H
+#define BINARIA_H
 
 void troca(int* a, int *b){
 	int aux = *a;
@@ -62,3 +64,5 @@ int it_buscaBinaria(int *v, int ini, int fim, int elem, int *comp){
     }
     return -1;
 }
+
+#endif

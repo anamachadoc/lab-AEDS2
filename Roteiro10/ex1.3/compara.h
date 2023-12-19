@@ -1,6 +1,9 @@
 #include"ordenacao.h"
 #include"leituraValores.h"
 
+#ifndef COMPARA_H
+#define COMPARA_H
+
 void comparacao (int numeroElementos, int *v) {
     clock_t t;
     int comp, mov;
@@ -98,3 +101,5 @@ void comparaQuaseOrdenado () {
     quaseordenado = lerArquivo("input/1000000-quaseordenado.txt");
     comparacao (1000000, quaseordenado);
 }
+
+#endif

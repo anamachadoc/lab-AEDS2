@@ -6,6 +6,10 @@
 +-------------------------------------------------------+ */
 
 #include<stdio.h>
+
+#ifndef SEQUENCIAL_H
+#define SEQUENCIAL_H
+
 int buscaSequencial(int *v, int n, int elem, int *comp){
     int i;
     for(i=0; i<n; i++){
@@ -16,3 +20,4 @@ int buscaSequencial(int *v, int n, int elem, int *comp){
     return -1; //Elemento encontrado
 }
 
+#endif

@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#ifndef ORDENACAO_H
+#define ORDENACAO_H
+
 int* copiaVetor(int* v, int n){
     int i;
     int *v2;
@@ -93,3 +96,5 @@ void InsertionSort(int *v, int n, int *comp, int *mov){
     v[j] = atual;
   }
 }
+
+#endif

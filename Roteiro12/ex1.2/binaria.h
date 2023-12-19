@@ -9,6 +9,9 @@
 #include<stdlib.h>
 #include<time.h>
 
+#ifndef BINARIA_H
+#define BINARIA_H
+
 void troca(int* a, int *b){
 	int aux = *a;
 	*a = *b;
@@ -96,3 +99,5 @@ void resultado (int ind) {
     else
         printf("O elemento NAO foi encontrado!\n");
 }
+
+#endif

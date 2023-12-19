@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#ifndef VETOR_H
+#define VETOR_H
+
 int* copiaVetor(int* v, int n){
     int i;
     int *v2;
@@ -30,3 +33,5 @@ void resultado (int ind) {
     else
         printf("O elemento NAO foi encontrado!\n");
 }
+
+#endif

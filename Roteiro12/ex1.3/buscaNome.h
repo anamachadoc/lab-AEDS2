@@ -1,27 +1,40 @@
-#include<stdio.h>
+#include"aluno.h"
 #include<stdlib.h>
-#include<time.h>
+
+#ifndef BUSCANOME_H
+#define BUSCANOME_H
 
 void trocaNome (Aluno* a, Aluno *b){
 	Aluno aux;
     strcpy (aux.nome, (*a).nome);
-    aux.idade = (*a).idade;
+    aux.matricula = (*a).matricula;
+    for (int i = 0; i < 3; i++) {
+        aux.notas[i] = (*a).notas[i];
+    }
     strcpy ((*a).nome, (*b).nome);
-    (*a).idade = (*b).idade;
+    (*a).matricula = (*b).matricula;
+    for (int i = 0; i < 3; i++) {
+        (*a).notas[i] = (*b).notas[i];
+    }
 	strcpy ((*b).nome, aux.nome);
-    (*b).idade = aux.idade;
+    (*b).matricula = aux.matricula;
+    for (int i = 0; i < 3; i++) {
+        (*b).notas[i] = aux.notas[i];
+    }
 } 
 
-int particaoNome(int *v, int ini, int fim){
+int particaoNome(Aluno *v, int ini, int fim){
     int i = ini, j = fim;
-    int pivo = v[(ini+fim)/2];
+    Aluno pivo = v[(ini+fim)/2];
     while (1) {
-        while(v[i] > pivo){ i++;} 
-        
-        while(v[j] < pivo){ j--;} 
-        
+        while(strcmp (pivo.nome, v[i].nome) > 0){ 
+            i++;
+        } 
+        while(strcmp (pivo.nome, v[j].nome) < 0){ 
+            j--;
+            } 
         if(i<j){
-            troca(&v[i], &v[j]); 
+            trocaNome(&v[i], &v[j]); 
             i++;
             j--;
         }else
@@ -29,15 +42,15 @@ int particaoNome(int *v, int ini, int fim){
     }    
 }
 
-void QuickSortNome(int *v, int ini, int fim){
+void QuickSortNome(Aluno *v, int ini, int fim){
     if(ini < fim ){
-        int q = particao(v, ini, fim);
-        QuickSort(v, ini, q);
-        QuickSort(v, q+1, fim);
+        int q = particaoNome(v, ini, fim);
+        QuickSortNome(v, ini, q);
+        QuickSortNome(v, q+1, fim);
     }
 }
 
-int rec_buscaBinariaNome(int *v, int ini, int fim, Aluno *elem){
+int rec_buscaBinariaNome(Aluno *v, int ini, int fim, Aluno *elem){
     if(ini > fim) return -1;
     int comparacao;
     int meio = (ini + fim)/2;
@@ -50,13 +63,13 @@ int rec_buscaBinariaNome(int *v, int ini, int fim, Aluno *elem){
             return meio;
     } else{ 
         if(comparacao < 0)
-            return rec_buscaBinaria(v, ini, meio-1, elem, comp); 
+            return rec_buscaBinariaNome(v, ini, meio-1, elem); 
         else
-            return rec_buscaBinaria(v, meio+1, fim, elem, comp);
+            return rec_buscaBinariaNome(v, meio+1, fim, elem);
     }
 }
 
-int it_buscaBinariaNome(int *v, int ini, int fim, Aluno *elem){
+int it_buscaBinariaNome(Aluno *v, int ini, int fim, Aluno *elem){
     int meio, comparacao;
     while(ini <= fim){
         meio = (ini + fim)/2;
@@ -76,3 +89,5 @@ int it_buscaBinariaNome(int *v, int ini, int fim, Aluno *elem){
     }
     return -1;
 }
+
+#endif
